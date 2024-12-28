@@ -47,7 +47,6 @@
 		</Linker>
 		<Unit filename="cbTerminal.cpp" />
 		<Unit filename="cbTerminal.hpp" />
-		<Unit filename="cbTerminalView.cpp" />
 		<Unit filename="cbTerminalView.hpp" />
 		<Unit filename="cbTerminalViewManagerBase.cpp" />
 		<Unit filename="cbTerminalViewManagerBase.hpp" />
@@ -55,6 +54,7 @@
 		<Unit filename="cbTerminalViewManagerLayout.hpp" />
 		<Unit filename="cbTerminalViewManagerMessagesNotebook.cpp" />
 		<Unit filename="cbTerminalViewManagerMessagesNotebook.hpp" />
+		<Unit filename="cbTerminalView_VTE.cpp" />
 		<Unit filename="manifest.xml" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

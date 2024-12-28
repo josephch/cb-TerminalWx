@@ -33,10 +33,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 # Source files to compile:
 FILE(GLOB SOURCE_FILES
             "cbTerminal.cpp"
-            "cbTerminalView.cpp"
             "cbTerminalViewManagerBase.cpp"
             "cbTerminalViewManagerLayout.cpp"
             "cbTerminalViewManagerMessagesNotebook.cpp"
+            "cbTerminalView_VTE.cpp"
 
             "cbTerminal.hpp"
             "cbTerminalView.hpp"
