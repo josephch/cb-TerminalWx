@@ -1,0 +1,3 @@
+[submodule "TerminalWx"]
+	path = TerminalWx
+	url = https://github.com/josephch/TerminalWx.git
