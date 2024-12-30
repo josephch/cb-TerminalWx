@@ -6,7 +6,32 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="default">
+			<Target title="vte-terminal">
+				<Option output="cbTerminal" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".objs/default" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="`pkg-config --cflags codeblocks`" />
+					<Add option="`wx-config --cflags`" />
+					<Add option="-g" />
+					<Add option="-Wall" />
+					<Add directory="json/include" />
+				</Compiler>
+				<Linker>
+					<Add option="`pkg-config --libs codeblocks`" />
+					<Add option="`wx-config --libs`" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="zip -j9 cbTerminal.zip manifest.xml" />
+					<Add after="cd resources &amp;&amp; zip -Rq9 ../cbTerminal.zip terminal-16.png &amp;&amp; cd .." />
+					<Add after="cp -f libcbTerminal.so cbTerminal.so" />
+					<Add after="zip -j9 cbTerminal.cbplugin cbTerminal.so cbTerminal.zip" />
+					<Add after="rm -f cbTerminal.so" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="terminalwx-terminal">
 				<Option output="cbTerminal" prefix_auto="1" extension_auto="1" />
 				<Option object_output=".objs/default" />
 				<Option type="3" />
@@ -33,7 +58,7 @@
 			</Target>
 		</Build>
 		<VirtualTargets>
-			<Add alias="All" targets="default;" />
+			<Add alias="All" targets="vte-terminal;" />
 		</VirtualTargets>
 		<Compiler>
 			<Add option="-std=c++11" />
@@ -45,6 +70,51 @@
 			<Add option="-Wl,--no-undefined" />
 			<Add option="`pkg-config --libs vte-2.91`" />
 		</Linker>
+		<Unit filename="TerminalWx/src/GTerm/actions.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/GTerm/gterm.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/GTerm/gterm.hpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/GTerm/keytrans.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/GTerm/pseudo_unix98.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/GTerm/pseudo_unix98.hpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/GTerm/states.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/GTerm/utils.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/GTerm/vt52_states.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/taTelnet/wxterm.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/taTelnet/wxterm.h">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/terminalinputevent.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/terminalinputevent.h">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/terminalwx.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="TerminalWx/src/terminalwx.h">
+			<Option target="terminalwx-terminal" />
+		</Unit>
 		<Unit filename="cbTerminal.cpp" />
 		<Unit filename="cbTerminal.hpp" />
 		<Unit filename="cbTerminalView.hpp" />
@@ -54,7 +124,12 @@
 		<Unit filename="cbTerminalViewManagerLayout.hpp" />
 		<Unit filename="cbTerminalViewManagerMessagesNotebook.cpp" />
 		<Unit filename="cbTerminalViewManagerMessagesNotebook.hpp" />
-		<Unit filename="cbTerminalView_VTE.cpp" />
+		<Unit filename="cbTerminalView_TerminalWx.cpp">
+			<Option target="terminalwx-terminal" />
+		</Unit>
+		<Unit filename="cbTerminalView_VTE.cpp">
+			<Option target="vte-terminal" />
+		</Unit>
 		<Unit filename="manifest.xml" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
