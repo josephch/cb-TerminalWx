@@ -32,12 +32,27 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
 # Source files to compile:
 FILE(GLOB SOURCE_FILES
+            "TerminalWx/src/GTerm/actions.cpp"
+            "TerminalWx/src/GTerm/gterm.cpp"
+            "TerminalWx/src/GTerm/keytrans.cpp"
+            "TerminalWx/src/GTerm/pseudo_unix98.cpp"
+            "TerminalWx/src/GTerm/states.cpp"
+            "TerminalWx/src/GTerm/utils.cpp"
+            "TerminalWx/src/GTerm/vt52_states.cpp"
+            "TerminalWx/src/taTelnet/wxterm.cpp"
+            "TerminalWx/src/terminalinputevent.cpp"
+            "TerminalWx/src/terminalwx.cpp"
             "cbTerminal.cpp"
             "cbTerminalViewManagerBase.cpp"
             "cbTerminalViewManagerLayout.cpp"
             "cbTerminalViewManagerMessagesNotebook.cpp"
-            "cbTerminalView_VTE.cpp"
+            "cbTerminalView_TerminalWx.cpp"
 
+            "TerminalWx/src/GTerm/gterm.hpp"
+            "TerminalWx/src/GTerm/pseudo_unix98.hpp"
+            "TerminalWx/src/taTelnet/wxterm.h"
+            "TerminalWx/src/terminalinputevent.h"
+            "TerminalWx/src/terminalwx.h"
             "cbTerminal.hpp"
             "cbTerminalView.hpp"
             "cbTerminalViewManagerBase.hpp"
